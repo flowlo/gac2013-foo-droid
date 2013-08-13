@@ -1,0 +1,10 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1375279198000 490914 3fe75433da602500cc71fcc1c46e5550291dd45d /Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-v4/13.0.0/support-v4-13.0.0.jar
+1376436062000 383 98df0d62813d7f9a4974e27601cfacd5a40ae9bb /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/R$string.class
+1376436062000 461 eeb1c21d109a4c0de64a03acc813ec8d249b4abd /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/R.class
+1376436062000 392 80d354e50ee9aa17c76273e8acb21bf637b6f81b /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/R$drawable.class
+1376436062000 325 ea6dfa88284d3616e75cbb7e7c40e70350f1b6e7 /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/R$attr.class
+1376436062000 416 cdaa0cd018a77ce3ebae6627eb4c8c70ef919ac3 /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/R$style.class
+1376436062000 335 ffbbc24b7d251f8988ff61d79678f20315c3a868 /Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/build/classes/debug/gac/freecycle/BuildConfig.class
