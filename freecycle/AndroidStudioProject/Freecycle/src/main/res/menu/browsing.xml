@@ -3,4 +3,22 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/browse_search_button"
+          android:title="Search"
+          android:orderInCategory="100"
+          android:showAsAction="ifRoom"
+          android:icon="@android:drawable/ic_menu_search"
+            />
+    <item android:id="@+id/browse_location_button"
+          android:title="Nearby"
+          android:orderInCategory="100"
+          android:showAsAction="ifRoom"
+          android:icon="@drawable/location_place"
+            />
+    <item android:id="@+id/browse_post_button"
+          android:title="Post"
+          android:orderInCategory="100"
+          android:showAsAction="ifRoom"
+          android:icon="@drawable/content_new"
+            />
 </menu>
