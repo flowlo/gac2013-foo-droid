@@ -1,0 +1,23 @@
+package gac.freecycle;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class BrowsingActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_browsing);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.browsing, menu);
+        return true;
+    }
+    
+}
