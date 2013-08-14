@@ -11,5 +11,17 @@
     <string name="request">Request</string>
     <string name="search_label">Search Freecycle</string>
     <string name="search_hint">Enter an item to search for</string>
+    <string name="title_activity_browsing">Offers</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_post">Post</string>
+    <string name="login_progress_signing_in">Sign In</string>
+    <string name="action_sign_in_register">Sign In or Register</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="prompt_email">Your E-Mail</string>
+    <string name="prompt_password">Your Password</string>
+    <string name="error_field_required">Please fill out all required fields.</string>
+    <string name="error_invalid_password">Your password appears to be wrong.</string>
+    <string name="error_invalid_email">Your E-Mail appears to be wrong.</string>
+    <string name="error_incorrect_password">Your password appears to be wrong.</string>
 
 </resources>
