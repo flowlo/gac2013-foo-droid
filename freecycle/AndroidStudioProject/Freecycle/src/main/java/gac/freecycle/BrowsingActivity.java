@@ -2,10 +2,13 @@ package gac.freecycle;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.view.Menu;
+import android.widget.SearchView;
 
 public class BrowsingActivity extends Activity {
 
@@ -29,6 +32,13 @@ public class BrowsingActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.browsing, menu);
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+
+        return true;
         return true;
     }
 
