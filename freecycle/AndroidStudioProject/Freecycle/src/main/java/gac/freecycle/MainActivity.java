@@ -2,23 +2,39 @@ package gac.freecycle;
 
 
 import android.app.ActionBar;
+import android.appwidget.AppWidgetHostView;
+import android.content.Context;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
-    /**
-     * The serialization (saved instance state) Bundle key representing the
-     * current dropdown position.
-     */
+
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
+    static String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+                "Android", "iPhone", "WindowsMobile" };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +54,49 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
                         android.R.layout.simple_list_item_1,
                         android.R.id.text1,
                         new String[]{
-                                getString(R.string.title_section1),
-                                getString(R.string.title_section2),
-                                getString(R.string.title_section3),
+                                getString(R.string.offer),
+                                getString(R.string.request),
                         }),
                 this);
+
+        BaseAdapter base_adaptor = new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return values.length;
+            }
+
+            @Override
+            public String getItem(int i) {
+                return values[i];
+            }
+
+            @Override
+            public long getItemId(int i) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int i, View view, ViewGroup viewGroup) {
+                View mView = getLayoutInflater().inflate(R.layout.category_item, viewGroup, false);
+                ImageView img = (ImageView) mView.findViewById(R.id.imageView);
+                TextView category_text = (TextView) mView.findViewById(R.id.category_text);
+                img.setImageResource(R.drawable.ic_launcher);
+                category_text.setText(values[i]);
+                return mView;
+            }
+        };
+
+//        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, values);
+        ListView category_list = (ListView) findViewById(R.id.category_list);
+       category_list.setAdapter(base_adaptor);
+
+        category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
