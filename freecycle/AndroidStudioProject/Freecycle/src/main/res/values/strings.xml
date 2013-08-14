@@ -6,6 +6,11 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+    <string name="search">Search</string>
+    <string name="offer">Offer</string>
+    <string name="request">Request</string>
+    <string name="search_label">Search Freecycle</string>
+    <string name="search_hint">Enter an item to search for</string>
     <string name="title_activity_browsing">Offers</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_post">Post</string>
