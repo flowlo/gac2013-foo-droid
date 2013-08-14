@@ -17,7 +17,6 @@ public class BrowsingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browsing);
 
-
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(true);
@@ -34,11 +33,10 @@ public class BrowsingActivity extends Activity {
         getMenuInflater().inflate(R.menu.browsing, menu);
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        SearchView searchView = (SearchView) menu.findItem(R.id.browse_search_button).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
 
-        return true;
         return true;
     }
 
