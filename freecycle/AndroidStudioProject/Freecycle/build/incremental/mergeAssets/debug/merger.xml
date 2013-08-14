@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/demouser/gac2013-foo-droid/freecycle/AndroidStudioProject/Freecycle/src/debug/assets" />
+    </dataSet>
+
+</merger>
