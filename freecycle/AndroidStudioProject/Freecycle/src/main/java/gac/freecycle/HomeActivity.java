@@ -3,14 +3,11 @@ package gac.freecycle;
 
 import android.app.ActionBar;
 import android.app.SearchManager;
-import android.appwidget.AppWidgetHostView;
 import android.content.Context;
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -19,16 +16,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-public class MainActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
+public class HomeActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
 // TODO: change values to match categories
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
@@ -42,7 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();
@@ -96,7 +89,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
         category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MainActivity.this, BrowsingActivity.class);
+                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }

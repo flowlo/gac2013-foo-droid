@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/cybar_bg"
+                  android:layout_margin="10dp">
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:clickable="false"
+                      android:dividerPadding="10dp"
+                      android:layout_weight="5"
+                      android:showDividers="beginning|middle|end"
+                      android:padding="10dp"
+                      android:layout_marginTop="50dp"
+                      android:layout_marginLeft="20dp"
+                      android:layout_marginRight="20dp"
+                      android:layout_marginBottom="20dp"
+                      android:baselineAligned="false">
+
+            <ImageView
+                    android:layout_width="@dimen/cybar_image_dim"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cybar_image"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:adjustViewBounds="false"/>
+
+            <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/cybar_description"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/cybar_location"
+                android:layout_gravity="right|center_vertical"/>
+    </LinearLayout>
+</LinearLayout>
