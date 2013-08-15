@@ -3,7 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
@@ -12,14 +13,13 @@
                   android:showDividers="middle"
                   android:divider="?android:dividerHorizontal"
                   android:background="@drawable/border"
-                  android:layout_margin="10dp"
+                  android:layout_margin="15dp"
             >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:orientation="horizontal"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:clickable="false"
                       android:showDividers="beginning|middle|end"
                       android:baselineAligned="false"
                       android:layout_margin="2dp">
@@ -65,17 +65,16 @@
                       android:orientation="horizontal"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:clickable="false"
                       android:showDividers="middle"
                       android:baselineAligned="false"
                       android:divider="?android:dividerVertical"
-                      android:layout_margin="2dp">
+                >
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Location"
                     android:id="@+id/cybar_location"
                     android:layout_gravity="left|center_vertical"
                     android:padding="5dp"
@@ -83,6 +82,7 @@
 
             <ImageButton
                     style="?android:borderlessButtonStyle"
+                    android:id="@+id/fav_btn"
                     android:layout_width="@dimen/fav_image_dim"
                     android:layout_height="@dimen/fav_image_dim"
                     android:src="@drawable/rating_not_important"

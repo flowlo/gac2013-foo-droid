@@ -8,13 +8,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+<<<<<<< HEAD:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/MainActivity.java
+import android.support.v4.view.MenuItemCompat;
+import android.util.Log;
+=======
+>>>>>>> c9cfb83413788df55ffb8c93926c51d27fff5319:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/HomeActivity.java
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -24,13 +31,13 @@ import android.widget.Toast;
 
 public class HomeActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
-// TODO: change values to match categories
+    // TODO: change values to match categories
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-    static String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
+    static String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
+            "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+            "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+            "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+            "Android", "iPhone", "WindowsMobile"};
 
 
     @Override
@@ -85,21 +92,18 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 
 //        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, values);
         ListView category_list = (ListView) findViewById(R.id.category_list);
-       category_list.setAdapter(base_adaptor);
+        category_list.setAdapter(base_adaptor);
 
         category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
 
         DrawerHelper.attachDrawer(this);
-
-        // Set the adapter for the list view
-
     }
 
 
@@ -128,9 +132,33 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         SearchView searchView = (SearchView) menu.findItem(R.id.browse_search_button).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
+        Log.i("FOODROID", "D");
+        MenuItem menuItem = menu.findItem(R.id.browse_post_button);
+        Log.i("FOODROID", "D");
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent startPostActivity = new Intent(MainActivity.this, PostActivity.class);
+                startActivity(startPostActivity);
+                Log.i("SUCCESSFUL_DROID", "SUCCESSS");
+                return true;  // Return true to expand action view
+            }
+        });
 
+        MenuItem locationItem = menu.findItem(R.id.browse_location_button);
+        locationItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+
+                Intent startMap = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(startMap);
+                return false;
+            }
+        });
         return true;
     }
+
 
     @Override
     public boolean onNavigationItemSelected(int position, long id) {
