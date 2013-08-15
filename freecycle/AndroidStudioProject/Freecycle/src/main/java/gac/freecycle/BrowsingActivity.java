@@ -79,6 +79,8 @@ public class BrowsingActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
+
+        DrawerHelper.attachDrawer(this);
     }
 
 
