@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class BrowsingActivity extends Activity {
 
     String[] ITEMS;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -8,13 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -78,7 +81,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 
 //        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, CATEGORIES);
         ListView category_list = (ListView) findViewById(R.id.category_list);
-       category_list.setAdapter(base_adaptor);
+        category_list.setAdapter(base_adaptor);
 
         category_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,9 +93,6 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         });
 
         DrawerHelper.attachDrawer(this);
-
-        // Set the adapter for the list view
-
     }
 
 
@@ -121,9 +121,33 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         SearchView searchView = (SearchView) menu.findItem(R.id.browse_search_button).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
+        Log.i("FOODROID", "D");
+        MenuItem menuItem = menu.findItem(R.id.browse_post_button);
+        Log.i("FOODROID", "D");
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent startPostActivity = new Intent(HomeActivity.this, PostActivity.class);
+                startActivity(startPostActivity);
+                Log.i("SUCCESSFUL_DROID", "SUCCESSS");
+                return true;  // Return true to expand action view
+            }
+        });
 
+        MenuItem locationItem = menu.findItem(R.id.browse_location_button);
+        locationItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+
+                Intent startMap = new Intent(HomeActivity.this, MapActivity.class);
+                startActivity(startMap);
+                return false;
+            }
+        });
         return true;
     }
+
 
     @Override
     public boolean onNavigationItemSelected(int position, long id) {
