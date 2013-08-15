@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="cybar_image_dim">96dp</dimen>
     <dimen name="fav_image_dim">32dp</dimen>
+    <dimen name="category_height">64dp</dimen>
 </resources>

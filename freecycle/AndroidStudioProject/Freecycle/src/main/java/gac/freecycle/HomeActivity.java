@@ -37,22 +37,8 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-        // Set up the dropdown list navigation in the action bar.
-        actionBar.setListNavigationCallbacks(
-                // Specify a SpinnerAdapter to populate the dropdown list.
-                new ArrayAdapter<String>(
-                        actionBar.getThemedContext(),
-                        android.R.layout.simple_list_item_1,
-                        android.R.id.text1,
-                        new String[]{
-                                getString(R.string.offer),
-                                getString(R.string.request),
-                        }),
-                this);
-
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setNavigationMode(ActionBar.DISPLAY_SHOW_TITLE);
         BaseAdapter base_adaptor = new BaseAdapter() {
             @Override
             public int getCount() {
@@ -74,7 +60,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
                 View mView = getLayoutInflater().inflate(R.layout.category_item, viewGroup, false);
                 ImageView img = (ImageView) mView.findViewById(R.id.imageView);
                 TextView category_text = (TextView) mView.findViewById(R.id.category_text);
-                img.setImageResource(R.drawable.ic_launcher);
+                img.setImageResource(Functions.categoryIcons[i]);
                 category_text.setText(Functions.CATEGORIES[i]);
                 return mView;
             }

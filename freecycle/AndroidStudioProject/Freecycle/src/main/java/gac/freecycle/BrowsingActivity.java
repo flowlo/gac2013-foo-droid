@@ -23,70 +23,73 @@ import android.widget.Toast;
 
 public class BrowsingActivity extends Activity {
 
-    String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    Functions.BASE_ADAPTOR = new BaseAdapter() {
+
+        @Override
+        public int getCount() {
+            Log.i("TEST", String.valueOf(Functions.ITEMS.length));
+            return Functions.ITEMS.length;
+        }
+
+        @Override
+        public String getItem(int i) {
+            return Functions.ITEMS[i];
+
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+
+            View mView = getLayoutInflater().inflate(R.layout.cybar_item, viewGroup, false);
+            ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
+            img.setImageResource(R.drawable.ic_launcher); //TODO: Change image based on items
+            ((TextView) mView.findViewById(R.id.cybar_location)).setText(Functions.LOCATION[i]);
+            ((TextView) mView.findViewById(R.id.cybar_description)).setText(Functions.ITEMS[i]);
+
+//            mView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+////                        Toast.makeText(getActivity().getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
+////                        Intent intent = new Intent(getActivity().getApplicationContext(), PostActivity.class);
+////                        startActivity(intent);
+//
+//                }
+//            });
+            return mView;
+        }
+    };
         setContentView(R.layout.activity_browsing);
 
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(true);
+//
 
-        actionBar.addTab(actionBar.newTab().setText("Latest").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
-        actionBar.addTab(actionBar.newTab().setText("Nearest").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
-        actionBar.addTab(actionBar.newTab().setText("Recommended").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
+//        Fragment frag = getFragmentManager().findFragmentById(R.id.browsing_fragment);
+        ActionBar.Tab tab = actionBar.newTab()
+                .setText("Latest")
+                .setTabListener(new TabListener<BrowsingFragment>(
+                        this, "artist", BrowsingFragment.class));
+        actionBar.addTab(tab);
+        tab.setText("Nearest");
+        actionBar.addTab(tab);
+        tab.setText("Recommended");
+        actionBar.addTab(tab);
 
-        // Cybar list view
-        BaseAdapter base_adaptor = new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return ITEMS.length;
-            }
-
-            @Override
-            public String getItem(int i) {
-                return ITEMS[i];
-
-            }
-
-            @Override
-            public long getItemId(int i) {
-                return 0;
-            }
-
-            @Override
-            public View getView(int i, View view, ViewGroup viewGroup) {
-
-                View mView = getLayoutInflater().inflate(R.layout.cybar_item, viewGroup, false);
-                ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
-                TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
-                img.setImageResource(R.drawable.ic_launcher);
-                category_text.setText(ITEMS[i]);
-                mView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-                return mView;
-            }
-        };
-        GridView cybar_list = (GridView) findViewById(R.id.cybar_list);
-        cybar_list.setAdapter(base_adaptor);
-
-        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
-//                startActivity(intent);
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+//        actionBar.addTab(actionBar.newTab().setText("Latest").setTabListener(new TabListener<BrowsingFragment>(this, "tag", BrowsingActivity.class)));
+//        actionBar.addTab(actionBar.newTab().setText("Nearest").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
+//        actionBar.addTab(actionBar.newTab().setText("Recommended").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
         DrawerHelper.attachDrawer(this);
+
     }
 
 
@@ -162,6 +165,7 @@ public class BrowsingActivity extends Activity {
         }
 
         public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+                Toast.makeText(mActivity.getApplicationContext(),mTag,Toast.LENGTH_SHORT).show();
             // User selected the already selected tab. Usually do nothing.
         }
     }

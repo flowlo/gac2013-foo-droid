@@ -14,7 +14,6 @@ import android.widget.TextView;
 public class DrawerHelper {
     static final String[] categoryNames = { "Clothing", "Garden", "Pets", "Toys and Games", "Books", "Entertainment", "Vehicles", "Education", "Baby Accessories"};
     static final int[] categoryIcons = { R.drawable.clothing, R.drawable.garden, R.drawable.pets, R.drawable.toysandgames, R.drawable.books, R.drawable.entertainment, R.drawable.motors, R.drawable.education, R.drawable.baby};
-
     public static void attachDrawer(final Activity activity) {
         final ListView listView = (ListView)activity.findViewById(R.id.left_drawer);
 
@@ -23,7 +22,8 @@ public class DrawerHelper {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((DrawerLayout)activity.findViewById(R.id.drawer_layout)).closeDrawer(listView);
+                Functions.CATEGORY_ID = position;
+//                ((DrawerLayout)activity.findViewById(R.id.drawer_layout)).closeDrawer(listView);
             }
         });
 
