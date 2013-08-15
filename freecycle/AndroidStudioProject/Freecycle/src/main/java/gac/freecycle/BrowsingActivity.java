@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -51,6 +52,7 @@ public class BrowsingActivity extends Activity {
             @Override
             public String getItem(int i) {
                 return values[i];
+
             }
 
             @Override
@@ -60,6 +62,7 @@ public class BrowsingActivity extends Activity {
 
             @Override
             public View getView(int i, View view, ViewGroup viewGroup) {
+
                 View mView = getLayoutInflater().inflate(R.layout.cybar_item, viewGroup, false);
                 ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
                 TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
@@ -68,7 +71,8 @@ public class BrowsingActivity extends Activity {
                 return mView;
             }
         };
-        ListView cybar_list = (ListView) findViewById(R.id.cybar_list);
+//        ListView cybar_list = (ListView) findViewById(R.id.cybar_list);
+        GridView cybar_list = (GridView) findViewById(R.id.cybar_list);
         cybar_list.setAdapter(base_adaptor);
 
         cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
