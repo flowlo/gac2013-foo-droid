@@ -8,9 +8,27 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class BrowsingActivity extends Activity {
+
+    // TODO: change values to match categories
+    static String[] values = new String[]{"Android", "iPhone", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile"};
+
+    public static View.OnClickListener imgButtonHandler = new View.OnClickListener() {
+        public void onClick(View v) {
+            v.setBackgroundResource(R.drawable.ic_launcher);
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +42,56 @@ public class BrowsingActivity extends Activity {
         actionBar.addTab(actionBar.newTab().setText("Latest").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
         actionBar.addTab(actionBar.newTab().setText("Nearest").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
         actionBar.addTab(actionBar.newTab().setText("Recommended").setTabListener(new TabListener<Fragment>(this, "tag", Fragment.class)));
+
+        // Cybar list view
+        BaseAdapter base_adaptor = new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return values.length;
+            }
+
+            @Override
+            public String getItem(int i) {
+                return values[i];
+
+            }
+
+            @Override
+            public long getItemId(int i) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int i, View view, ViewGroup viewGroup) {
+
+                View mView = getLayoutInflater().inflate(R.layout.cybar_item, viewGroup, false);
+                ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
+                TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
+                img.setImageResource(R.drawable.ic_launcher);
+                category_text.setText(values[i]);
+                mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                return mView;
+            }
+        };
+        GridView cybar_list = (GridView) findViewById(R.id.cybar_list);
+        cybar_list.setAdapter(base_adaptor);
+
+        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        DrawerHelper.attachDrawer(this);
     }
 
 
@@ -46,10 +114,12 @@ public class BrowsingActivity extends Activity {
         private final String mTag;
         private final Class<T> mClass;
 
-        /** Constructor used each time a new tab is created.
-         * @param activity  The host Activity, used to instantiate the fragment
-         * @param tag  The identifier tag for the fragment
-         * @param clz  The fragment's Class, used to instantiate the fragment
+        /**
+         * Constructor used each time a new tab is created.
+         *
+         * @param activity The host Activity, used to instantiate the fragment
+         * @param tag      The identifier tag for the fragment
+         * @param clz      The fragment's Class, used to instantiate the fragment
          */
         public TabListener(Activity activity, String tag, Class<T> clz) {
             mActivity = activity;

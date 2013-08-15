@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:showDividers="middle"
+                  android:divider="?android:dividerHorizontal"
+                  android:background="@drawable/border"
+                  android:layout_margin="15dp"
+            >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:showDividers="beginning|middle|end"
+                      android:baselineAligned="false"
+                      android:layout_margin="2dp">
+
+            <ImageView
+                    android:layout_width="@dimen/cybar_image_dim"
+                    android:layout_height="@dimen/cybar_image_dim"
+                    android:id="@+id/cybar_image"
+                    android:layout_gravity="left"
+                    android:adjustViewBounds="false"
+                    android:background="@color/cybar_bg"/>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                    >
+
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textStyle="bold"
+                        android:text="Item title"
+                        android:id="@+id/cybar_description"/>
+
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="Date posted"
+                        android:gravity="bottom|right"
+                        android:id="@+id/cybar_date"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/cybar_description"
+                        android:layout_alignParentLeft="true"
+                        />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:showDividers="middle"
+                      android:baselineAligned="false"
+                      android:divider="?android:dividerVertical"
+                >
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Location"
+                    android:id="@+id/cybar_location"
+                    android:layout_gravity="left|center_vertical"
+                    android:padding="5dp"
+                    android:layout_weight="1"/>
+
+            <ImageButton
+                    style="?android:borderlessButtonStyle"
+                    android:id="@+id/fav_btn"
+                    android:layout_width="@dimen/fav_image_dim"
+                    android:layout_height="@dimen/fav_image_dim"
+                    android:src="@drawable/rating_not_important"
+                    android:layout_weight="0"
+                    />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
