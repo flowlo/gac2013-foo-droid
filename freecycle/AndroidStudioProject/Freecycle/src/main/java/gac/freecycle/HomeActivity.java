@@ -73,7 +73,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
                 View mView = getLayoutInflater().inflate(R.layout.category_item, viewGroup, false);
                 ImageView img = (ImageView) mView.findViewById(R.id.imageView);
                 TextView category_text = (TextView) mView.findViewById(R.id.category_text);
-                img.setImageResource(R.drawable.ic_launcher);
+                img.setImageResource(Functions.categoryIcons[i]);
                 category_text.setText(Functions.CATEGORIES[i]);
                 return mView;
             }

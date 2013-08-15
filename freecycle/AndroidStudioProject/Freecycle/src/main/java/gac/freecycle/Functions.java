@@ -12,7 +12,10 @@ public class Functions {
 
     public static final CharSequence[] ITEMS = {""};
     // TODO: change CATEGORIES to match categories
-    static String[] CATEGORIES = new String[]{"Android", "iPhone", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile"};
+    static final String[] CATEGORIES = { "Clothing", "Garden", "Pets", "Toys and Games", "Books", "Entertainment", "Vehicles", "Education", "Baby Accessories"};
+    static final int[] categoryIcons = { R.drawable.clothing, R.drawable.garden, R.drawable.pets, R.drawable.toysandgames, R.drawable.books, R.drawable.entertainment, R.drawable.motors, R.drawable.education, R.drawable.baby};
+
+//    static String[] CATEGORIES = new String[]{"Android", "iPhone", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile"};
 
     public static final String[] FURNITURE_LATEST_OFFER_TITLE = new String[]{
             "Dining table and 4 chairs", "Wardrobe", "Headboard", "Sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit / Table"};

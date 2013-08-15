@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -20,7 +21,8 @@ import android.widget.Toast;
 
 public class BrowsingActivity extends Activity {
 
-    String[] ITEMS;
+    String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
+    String[] LOCATION = Functions.FURNITURE_LATEST_OFFER_LOCATION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +60,16 @@ public class BrowsingActivity extends Activity {
 
                 View mView = getLayoutInflater().inflate(R.layout.cybar_item, viewGroup, false);
                 ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
-                TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
-                img.setImageResource(R.drawable.ic_launcher);
-                category_text.setText(ITEMS[i]);
+                img.setImageResource(R.drawable.ic_launcher); //TODO: Change image based on items
+                ((TextView)mView.findViewById(R.id.cybar_location)).setText(LOCATION[i]);
+                ((TextView) mView.findViewById(R.id.cybar_description)).setText(ITEMS[i]);
+
                 mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(BrowsingActivity.this, PostActivity.class);
+                        startActivity(intent);
 
                     }
                 });
@@ -73,16 +78,6 @@ public class BrowsingActivity extends Activity {
         };
         GridView cybar_list = (GridView) findViewById(R.id.cybar_list);
         cybar_list.setAdapter(base_adaptor);
-
-        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
-//                startActivity(intent);
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         DrawerHelper.attachDrawer(this);
     }
 
