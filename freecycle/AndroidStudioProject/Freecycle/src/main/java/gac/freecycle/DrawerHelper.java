@@ -1,23 +1,31 @@
 package gac.freecycle;
 
 import android.app.Activity;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-/**
- * Created by demouser on 8/15/13.
- */
 public class DrawerHelper {
     static final String[] categoryNames = { "Clothing", "Garden", "Pets", "Toys and Games", "Books", "Entertainment", "Vehicles", "Education", "Baby Accessories"};
     static final int[] categoryIcons = { R.drawable.clothing, R.drawable.garden, R.drawable.pets, R.drawable.toysandgames, R.drawable.books, R.drawable.entertainment, R.drawable.motors, R.drawable.education, R.drawable.baby};
-
     public static void attachDrawer(final Activity activity) {
-        ((ListView)activity.findViewById(R.id.left_drawer)).setAdapter(new CategoryAdapter(activity));
+        final ListView listView = (ListView)activity.findViewById(R.id.left_drawer);
+
+        listView.setAdapter(new CategoryAdapter(activity));
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Functions.CATEGORY_ID = position;
+//                ((DrawerLayout)activity.findViewById(R.id.drawer_layout)).closeDrawer(listView);
+            }
+        });
     }
 
     private static class CategoryAdapter extends BaseAdapter {
@@ -49,6 +57,7 @@ public class DrawerHelper {
             TextView category_text = (TextView) mView.findViewById(R.id.category_name);
             img.setImageResource(categoryIcons[position]);
             category_text.setText(categoryNames[position]);
+
             return mView;
         }
     };

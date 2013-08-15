@@ -4,13 +4,53 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import android.widget.BaseAdapter;
+
 /**
  * Created by demouser on 8/15/13.
  */
 public class Functions {
 
+    static int CATEGORY_ID = 0;
+    static String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
+    static String[] LOCATION = Functions.FURNITURE_LATEST_OFFER_LOCATION;
+    static String[] DESCRIPTION = Functions.FURNITURE_LATEST_OFFER_DESCRIPTION;
+    static BaseAdapter BASE_ADAPTOR;
 
-    public static final CharSequence[] ITEMS = {""};
+    static public void updateArray(){
+        switch (CATEGORY_ID){
+            case 000:
+                ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
+                break;
+            case 001: ITEMS = Functions.FURNITURE_LATEST_REQUEST_TITLE;
+                break;
+            case 010: ITEMS = Functions.FURNITURE_NEAREST_OFFER_TITLE;
+                break;
+            case 011: ITEMS = Functions.FURNITURE_NEAREST_REQUEST_TITLE;
+                break;
+            case 020: ITEMS = Functions.FURNITURE_RECOMMENDED_OFFER_TITLE;
+                break;
+            case 021: ITEMS = Functions.FURNITURE_RECOMMENDED_REQUEST_TITLE;
+                break;
+            case 100: ITEMS = Functions.GARDEN_LATEST_OFFER_TITLE;
+                break;
+            case 101: ITEMS = Functions.GARDEN_LATEST_REQUEST_TITLE;
+                break;
+            case 110: ITEMS = Functions.GARDEN_NEAREST_OFFER_TITLE;
+                break;
+            case 111: ITEMS = Functions.GARDEN_NEAREST_REQUEST_TITLE;
+                break;
+            case 120: ITEMS = Functions.GARDEN_RECOMMENDED_OFFER_TITLE;
+                break;
+            case 121: ITEMS = Functions.GARDEN_RECOMMENDED_REQUEST_TITLE;
+                break;
+            default:
+                ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
+
+        }
+    }
+
+//    public static final CharSequence[] ITEMS = {""};
     // TODO: change CATEGORIES to match categories
     static final String[] CATEGORIES = { "Clothing", "Garden", "Pets", "Toys and Games", "Books", "Entertainment", "Vehicles", "Education", "Baby Accessories"};
     static final int[] categoryIcons = { R.drawable.clothing, R.drawable.garden, R.drawable.pets, R.drawable.toysandgames, R.drawable.books, R.drawable.entertainment, R.drawable.motors, R.drawable.education, R.drawable.baby};
