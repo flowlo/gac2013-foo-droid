@@ -91,7 +91,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
 
