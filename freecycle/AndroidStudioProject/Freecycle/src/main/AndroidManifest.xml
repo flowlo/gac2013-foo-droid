@@ -60,6 +60,7 @@
         </activity>
         <activity
                 android:name="gac.freecycle.BrowsingActivity"
+                android:parentActivityName="gac.freecycle.HomeActivity"
                 android:label="@string/title_activity_browsing">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
