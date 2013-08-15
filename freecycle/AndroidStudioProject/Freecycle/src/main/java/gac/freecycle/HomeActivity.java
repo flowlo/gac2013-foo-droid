@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -94,6 +95,10 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 //                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
+
+        DrawerHelper.attachDrawer(this);
+
+        // Set the adapter for the list view
 
     }
 

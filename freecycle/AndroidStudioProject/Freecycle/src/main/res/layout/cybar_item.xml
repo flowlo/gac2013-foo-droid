@@ -33,9 +33,9 @@
                     android:background="@color/cybar_bg"/>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                          android:orientation="vertical"
-                          android:layout_width="match_parent"
-                          android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                     >
 
                 <TextView
@@ -81,14 +81,13 @@
                     android:layout_weight="1"/>
 
             <ImageButton
-            style="?android:borderlessButtonStyle"
-            android:id="@+id/fav_btn"
-            android:layout_width="@dimen/fav_image_dim"
-            android:layout_height="@dimen/fav_image_dim"
-            android:src="@drawable/rating_not_important"
+                    style="?android:borderlessButtonStyle"
+                    android:id="@+id/fav_btn"
+                    android:layout_width="@dimen/fav_image_dim"
+                    android:layout_height="@dimen/fav_image_dim"
+                    android:src="@drawable/rating_not_important"
                     android:layout_weight="0"
-            />
-
+                    />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

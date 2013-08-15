@@ -69,35 +69,29 @@ public class BrowsingActivity extends Activity {
                 TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
                 img.setImageResource(R.drawable.ic_launcher);
                 category_text.setText(values[i]);
-    mView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
+                mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
 
-        }
-    });
+                    }
+                });
                 return mView;
             }
         };
         GridView cybar_list = (GridView) findViewById(R.id.cybar_list);
         cybar_list.setAdapter(base_adaptor);
-//        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getApplicationContext(), "Test_click", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
+        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
+//                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-//        cybar_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-////                Intent intent = new Intent(HomeActivity.this, BrowsingActivity.class);
-////                startActivity(intent);
-//                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        DrawerHelper.attachDrawer(this);
     }
 
 
