@@ -20,15 +20,7 @@ import android.widget.Toast;
 
 public class BrowsingActivity extends Activity {
 
-    // TODO: change values to match categories
-    static String[] values = new String[]{"Android", "iPhone", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile"};
-
-    public static View.OnClickListener imgButtonHandler = new View.OnClickListener() {
-        public void onClick(View v) {
-            v.setBackgroundResource(R.drawable.ic_launcher);
-        }
-    };
-
+    String[] ITEMS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +39,12 @@ public class BrowsingActivity extends Activity {
         BaseAdapter base_adaptor = new BaseAdapter() {
             @Override
             public int getCount() {
-                return values.length;
+                return ITEMS.length;
             }
 
             @Override
             public String getItem(int i) {
-                return values[i];
+                return ITEMS[i];
 
             }
 
@@ -68,7 +60,7 @@ public class BrowsingActivity extends Activity {
                 ImageView img = (ImageView) mView.findViewById(R.id.cybar_image);
                 TextView category_text = (TextView) mView.findViewById(R.id.cybar_description);
                 img.setImageResource(R.drawable.ic_launcher);
-                category_text.setText(values[i]);
+                category_text.setText(ITEMS[i]);
                 mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

@@ -28,14 +28,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
-    // TODO: change values to match categories
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-    static String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
-            "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-            "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-            "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-            "Android", "iPhone", "WindowsMobile"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +56,12 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         BaseAdapter base_adaptor = new BaseAdapter() {
             @Override
             public int getCount() {
-                return values.length;
+                return Functions.CATEGORIES.length;
             }
 
             @Override
             public String getItem(int i) {
-                return values[i];
+                return Functions.CATEGORIES[i];
             }
 
             @Override
@@ -82,12 +75,12 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
                 ImageView img = (ImageView) mView.findViewById(R.id.imageView);
                 TextView category_text = (TextView) mView.findViewById(R.id.category_text);
                 img.setImageResource(R.drawable.ic_launcher);
-                category_text.setText(values[i]);
+                category_text.setText(Functions.CATEGORIES[i]);
                 return mView;
             }
         };
 
-//        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, values);
+//        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, CATEGORIES);
         ListView category_list = (ListView) findViewById(R.id.category_list);
         category_list.setAdapter(base_adaptor);
 
