@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 public class BrowsingActivity extends Activity {
 
-    String[] ITEMS;
+    String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
