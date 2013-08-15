@@ -8,11 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-<<<<<<< HEAD:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/MainActivity.java
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
-=======
->>>>>>> c9cfb83413788df55ffb8c93926c51d27fff5319:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/HomeActivity.java
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -138,7 +135,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                Intent startPostActivity = new Intent(MainActivity.this, PostActivity.class);
+                Intent startPostActivity = new Intent(HomeActivity.this, PostActivity.class);
                 startActivity(startPostActivity);
                 Log.i("SUCCESSFUL_DROID", "SUCCESSS");
                 return true;  // Return true to expand action view
@@ -151,7 +148,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
             public boolean onMenuItemClick(MenuItem menuItem) {
 
 
-                Intent startMap = new Intent(MainActivity.this, MapActivity.class);
+                Intent startMap = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(startMap);
                 return false;
             }
