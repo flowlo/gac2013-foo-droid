@@ -4,10 +4,13 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -96,6 +99,24 @@ public class BrowsingActivity extends Activity {
         SearchView searchView = (SearchView) menu.findItem(R.id.browse_search_button).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(true); // Do not iconify the widget; expand it by default
+
+        menu.findItem(R.id.browse_post_button).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent startPostActivity = new Intent(BrowsingActivity.this, PostActivity.class);
+                startActivity(startPostActivity);
+                return true;
+            }
+        });
+
+        menu.findItem(R.id.browse_location_button).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Intent startMap = new Intent(BrowsingActivity.this, MapActivity.class);
+                startActivity(startMap);
+                return false;
+            }
+        });
 
         return true;
     }
