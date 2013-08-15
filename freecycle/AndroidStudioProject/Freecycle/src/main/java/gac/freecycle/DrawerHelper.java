@@ -26,6 +26,8 @@ public class DrawerHelper {
 //                ((DrawerLayout)activity.findViewById(R.id.drawer_layout)).closeDrawer(listView);
             }
         });
+
+        activity.getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private static class CategoryAdapter extends BaseAdapter {

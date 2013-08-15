@@ -87,6 +87,9 @@
                     android:layout_height="@dimen/fav_image_dim"
                     android:src="@drawable/rating_not_important"
                     android:layout_weight="0"
+                    android:layout_marginRight="1.5dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_gravity="center"
                     />
         </LinearLayout>
     </LinearLayout>
