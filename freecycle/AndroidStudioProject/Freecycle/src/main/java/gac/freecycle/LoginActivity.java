@@ -83,6 +83,8 @@ public class LoginActivity extends Activity {
                 attemptLogin();
             }
         });
+
+        DrawerHelper.attachDrawer(this);
     }
 
 

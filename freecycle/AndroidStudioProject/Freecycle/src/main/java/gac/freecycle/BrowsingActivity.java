@@ -21,7 +21,6 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class BrowsingActivity extends Activity {
     public static final String[] FURNITURE_LATEST_OFFER_TITLE = new String[]{
             "Dining table and 4 chairs", "Wardrobe", "Bed - needs headboard.jpeg", "sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit n Table"};

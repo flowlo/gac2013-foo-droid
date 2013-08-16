@@ -48,6 +48,7 @@
 
         <activity
                 android:name="gac.freecycle.LoginActivity"
+                android:parentActivityName="gac.freecycle.HomeActivity"
                 android:label="Login"
                 android:windowSoftInputMode="adjustResize|stateVisible">
         </activity>
@@ -55,7 +56,7 @@
 
         <activity
                 android:name="gac.freecycle.PostActivity"
-                android:label="Login"
+                android:label="Post"
                 android:windowSoftInputMode="adjustResize|stateVisible">
         </activity>
         <activity
