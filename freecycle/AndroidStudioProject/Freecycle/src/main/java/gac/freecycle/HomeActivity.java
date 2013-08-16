@@ -89,8 +89,14 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         // Restore the previously serialized current dropdown position.
         if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
+            try {
             getActionBar().setSelectedNavigationItem(
                     savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
+            }
+            catch (IllegalStateException e) {
+                // FIXME this is a really nasty and bad hack
+                e.printStackTrace();
+            }
         }
     }
 
