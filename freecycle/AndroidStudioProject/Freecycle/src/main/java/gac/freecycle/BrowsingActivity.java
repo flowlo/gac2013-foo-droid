@@ -5,6 +5,9 @@ import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -21,9 +24,12 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.util.List;
+
 public class BrowsingActivity extends Activity {
     public static final String[] FURNITURE_LATEST_OFFER_TITLE = new String[]{
-            "Dining table and 4 chairs", "Wardrobe", "Bed - needs headboard.jpeg", "sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit n Table"};
+            "Dining table and 4 chairs", "Wardrobe", "Bed - needs headboard", "sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit n Table"};
     public static final String[] FURNITURE_LATEST_OFFER_LOCATION = new String[]{"52.400946,0.263232", "51.528642,-0.101599", "51.452683,-2.588997", "56.116523,-3.936903", "40.416271,-91.135779", "51.49636,-0.14308", "43.133897,-88.222037", "53.04304,-2.992494", "53.645708,-3.010113"};
 
     String temp;
@@ -63,7 +69,10 @@ public class BrowsingActivity extends Activity {
                 Log.i("TESTTEST", String.valueOf(temp));
                 Log.i("TESTTEST", String.valueOf(temp2) + " this");
                 img.setImageResource(getResources().getIdentifier(temp, "drawable", getPackageName())); //TODO: Change image based on items
-                ((TextView) mView.findViewById(R.id.cybar_location)).setText(FURNITURE_LATEST_OFFER_LOCATION[i]);
+
+                ((TextView) mView.findViewById(R.id.cybar_location)).setText(FURNITURE_LATEST_OFFER_LOCATION[i].replace(",",", "));
+                new GeocodingTask((TextView) mView.findViewById(R.id.cybar_location)).execute(FURNITURE_LATEST_OFFER_LOCATION[i]);
+
                 ((TextView) mView.findViewById(R.id.cybar_description)).setText(FURNITURE_LATEST_OFFER_TITLE[i]);
 
                 mView.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +95,7 @@ public class BrowsingActivity extends Activity {
                 .setText("Latest")
                 .setTabListener(new TabListener<BrowsingFragment>(
                         this, "artist", BrowsingFragment.class));
+
         actionBar.addTab(tab);
         tab.setText("Nearest");
         actionBar.addTab(tab);
@@ -177,8 +187,38 @@ public class BrowsingActivity extends Activity {
         }
 
         public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-            Toast.makeText(mActivity.getApplicationContext(), mTag, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(mActivity.getApplicationContext(), mTag, Toast.LENGTH_SHORT).show();
             // User selected the already selected tab. Usually do nothing.
+        }
+    }
+    private class GeocodingTask extends AsyncTask<String, Object, String> {
+        private TextView target;
+
+        public GeocodingTask(TextView target) {
+            this.target = target;
+        }
+
+        protected String doInBackground(String... coordinates) {
+            if (coordinates.length > 1)
+                throw new RuntimeException();
+
+            Geocoder geocoder = new Geocoder(getApplicationContext());
+
+            double lat, lng;
+            lat = Double.parseDouble(coordinates[0].split(",")[0]);
+            lng = Double.parseDouble(coordinates[0].split(",")[1]);
+
+            List<Address> results = null;
+            try {
+                results = geocoder.getFromLocation(lat, lng, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return results.get(0).getLocality();
+        }
+
+        protected void onPostExecute(String result) {
+            target.setText(result);
         }
     }
 }
