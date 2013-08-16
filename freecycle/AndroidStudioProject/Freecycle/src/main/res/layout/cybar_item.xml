@@ -13,7 +13,7 @@
                   android:showDividers="middle"
                   android:divider="?android:dividerHorizontal"
                   android:background="@drawable/border"
-                  android:layout_margin="15dp"
+                  android:layout_margin="4dp"
             >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,7 +30,8 @@
                     android:id="@+id/cybar_image"
                     android:layout_gravity="left"
                     android:adjustViewBounds="false"
-                    android:background="@color/cybar_bg"/>
+                    android:background="@color/cybar_bg"
+                    android:scaleType="centerCrop"/>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:orientation="vertical"
