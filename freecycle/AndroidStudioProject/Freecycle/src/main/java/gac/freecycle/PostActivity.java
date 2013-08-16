@@ -17,6 +17,7 @@ public class PostActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_offer_layout);
 
+        DrawerHelper.attachDrawer(this);
     }
 
     @Override

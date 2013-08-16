@@ -8,11 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-<<<<<<< HEAD:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/MainActivity.java
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
-=======
->>>>>>> c9cfb83413788df55ffb8c93926c51d27fff5319:freecycle/AndroidStudioProject/Freecycle/src/main/java/gac/freecycle/HomeActivity.java
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -31,14 +29,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
 
-    // TODO: change values to match categories
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-    static String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
-            "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-            "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-            "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-            "Android", "iPhone", "WindowsMobile"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,31 +38,17 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 
         // Set up the action bar to show a dropdown list.
         final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-        // Set up the dropdown list navigation in the action bar.
-        actionBar.setListNavigationCallbacks(
-                // Specify a SpinnerAdapter to populate the dropdown list.
-                new ArrayAdapter<String>(
-                        actionBar.getThemedContext(),
-                        android.R.layout.simple_list_item_1,
-                        android.R.id.text1,
-                        new String[]{
-                                getString(R.string.offer),
-                                getString(R.string.request),
-                        }),
-                this);
-
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setNavigationMode(ActionBar.DISPLAY_SHOW_TITLE);
         BaseAdapter base_adaptor = new BaseAdapter() {
             @Override
             public int getCount() {
-                return values.length;
+                return Functions.CATEGORIES.length;
             }
 
             @Override
             public String getItem(int i) {
-                return values[i];
+                return Functions.CATEGORIES[i];
             }
 
             @Override
@@ -84,13 +61,13 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
                 View mView = getLayoutInflater().inflate(R.layout.category_item, viewGroup, false);
                 ImageView img = (ImageView) mView.findViewById(R.id.imageView);
                 TextView category_text = (TextView) mView.findViewById(R.id.category_text);
-                img.setImageResource(R.drawable.ic_launcher);
-                category_text.setText(values[i]);
+                img.setImageResource(Functions.categoryIcons[i]);
+                category_text.setText(Functions.CATEGORIES[i]);
                 return mView;
             }
         };
 
-//        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, values);
+//        ArrayAdapter list_adaptor = new ArrayAdapter(this, android.R.layout.simple_list_item_1, CATEGORIES);
         ListView category_list = (ListView) findViewById(R.id.category_list);
         category_list.setAdapter(base_adaptor);
 
@@ -102,6 +79,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 //                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         DrawerHelper.attachDrawer(this);
     }
@@ -138,7 +116,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
         menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                Intent startPostActivity = new Intent(MainActivity.this, PostActivity.class);
+                Intent startPostActivity = new Intent(HomeActivity.this, PostActivity.class);
                 startActivity(startPostActivity);
                 Log.i("SUCCESSFUL_DROID", "SUCCESSS");
                 return true;  // Return true to expand action view
@@ -151,7 +129,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
             public boolean onMenuItemClick(MenuItem menuItem) {
 
 
-                Intent startMap = new Intent(MainActivity.this, MapActivity.class);
+                Intent startMap = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(startMap);
                 return false;
             }

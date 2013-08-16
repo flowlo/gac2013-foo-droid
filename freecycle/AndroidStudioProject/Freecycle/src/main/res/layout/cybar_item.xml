@@ -13,7 +13,7 @@
                   android:showDividers="middle"
                   android:divider="?android:dividerHorizontal"
                   android:background="@drawable/border"
-                  android:layout_margin="15dp"
+                  android:layout_margin="4dp"
             >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,7 +30,8 @@
                     android:id="@+id/cybar_image"
                     android:layout_gravity="left"
                     android:adjustViewBounds="false"
-                    android:background="@color/cybar_bg"/>
+                    android:background="@color/cybar_bg"
+                    android:scaleType="centerCrop"/>
 
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:orientation="vertical"
@@ -50,7 +51,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Date posted"
+                        android:text="16 Aug 2013"
                         android:gravity="bottom|right"
                         android:id="@+id/cybar_date"
                         android:layout_alignParentBottom="true"
@@ -87,6 +88,9 @@
                     android:layout_height="@dimen/fav_image_dim"
                     android:src="@drawable/rating_not_important"
                     android:layout_weight="0"
+                    android:layout_marginRight="1.5dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_gravity="center"
                     />
         </LinearLayout>
     </LinearLayout>
