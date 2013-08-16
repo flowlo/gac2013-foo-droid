@@ -52,10 +52,9 @@
                 android:label="Login"
                 android:windowSoftInputMode="adjustResize|stateVisible">
         </activity>
-
-
         <activity
                 android:name="gac.freecycle.PostActivity"
+                android:parentActivityName="gac.freecycle.HomeActivity"
                 android:label="Post"
                 android:windowSoftInputMode="adjustResize|stateVisible">
         </activity>

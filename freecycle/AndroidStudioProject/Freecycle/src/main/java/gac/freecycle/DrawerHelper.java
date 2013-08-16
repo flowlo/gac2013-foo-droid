@@ -27,7 +27,8 @@ public class DrawerHelper {
             }
         });
 
-        activity.getActionBar().setDisplayHomeAsUpEnabled(true);
+        if (!activity.getClass().equals(HomeActivity.class))
+            activity.getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private static class CategoryAdapter extends BaseAdapter {
