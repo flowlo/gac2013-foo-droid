@@ -12,10 +12,10 @@ import android.widget.BaseAdapter;
 public class Functions {
 
     static int CATEGORY_ID = 0;
-    static String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
-    static String[] LOCATION = Functions.FURNITURE_LATEST_OFFER_LOCATION;
-    static String[] DESCRIPTION = Functions.FURNITURE_LATEST_OFFER_DESCRIPTION;
-    static BaseAdapter BASE_ADAPTOR;
+    static public String[] ITEMS = Functions.FURNITURE_LATEST_OFFER_TITLE;
+    final static public String[] LOCATION = Functions.FURNITURE_LATEST_OFFER_LOCATION;
+    static public String[] DESCRIPTION = Functions.FURNITURE_LATEST_OFFER_DESCRIPTION;
+    static public BaseAdapter BASE_ADAPTOR;
 
     static public void updateArray(){
         switch (CATEGORY_ID){
@@ -58,7 +58,7 @@ public class Functions {
 //    static String[] CATEGORIES = new String[]{"Android", "iPhone", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile", "Android", "iPhone", "WindowsMobile"};
 
     public static final String[] FURNITURE_LATEST_OFFER_TITLE = new String[]{
-            "Dining table and 4 chairs", "Wardrobe", "Headboard", "Sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit / Table"};
+            "Dining table and 4 chairs", "Wardrobe", "Bed - needs headboard.jpeg", "sofa", "Matching computer and filing cabinet", "Large leather sofa", "Child chair", "Hi-fi cabinet", "Storage unit n Table"};
     public static final String[] FURNITURE_NEAREST_OFFER_TITLE = new String[]{};
     public static final String[] FURNITURE_RECOMMENDED_OFFER_TITLE = new String[]{"Glass display unit"};
     public static final String[] FURNITURE_LATEST_REQUEST_TITLE = new String[]{"Canvas furniture", "Multiple", "Ikea Basics", "Door", "Orbital sander", "Cot", "Chest of drawers", "Wooden furniture", "Pine bedroom furniture", "Office furniture"};
@@ -80,7 +80,7 @@ public class Functions {
     public static final String[] FURNITURE_RECOMMENDED_REQUEST_DESCRIPTION = new String[]{};
 
 
-    public static final String[] GARDEN_LATEST_OFFER_TITLE = new String[]{"Wooden garden furniture", "Greenhouse", "Soil", "Soil", "Plant pots", "Broken hedge trimmer", "Leaf vacuum", "Greenhouse"};
+    public static final String[] GARDEN_LATEST_OFFER_TITLE = new String[]{"Wooden garden furniture", "glasshouse", "Topsoil", "soil", "Plant pots", "Broken hedge trimmer", "Leaf vacuum", "greenhouse"};
     public static final String[] GARDEN_NEAREST_OFFER_TITLE = new String[]{};
     public static final String[] GARDEN_RECOMMENDED_OFFER_TITLE = new String[]{};
     public static final String[] GARDEN_LATEST_REQUEST_TITLE = new String[]{};

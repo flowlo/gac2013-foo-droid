@@ -10,13 +10,21 @@
             android:orientation="vertical"
             >
 
-        <fragment
-                android:name="gac.freecycle.BrowsingFragment"
-                android:id="@+id/browsing_fragment"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                />
+        <!--<fragment-->
+                <!--android:name="gac.freecycle.BrowsingFragment"-->
+                <!--android:id="@+id/browsing_fragment"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="match_parent"-->
+                <!--/>-->
 
+        <GridView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numColumns="2"
+                android:id="@+id/cybar_list"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                />
     </LinearLayout>
 
     <ListView

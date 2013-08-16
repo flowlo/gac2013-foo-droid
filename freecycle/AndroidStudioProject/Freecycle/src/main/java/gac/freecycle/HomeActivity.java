@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -78,6 +79,7 @@ public class HomeActivity extends FragmentActivity implements ActionBar.OnNaviga
 //                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         DrawerHelper.attachDrawer(this);
     }
